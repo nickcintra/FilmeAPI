@@ -14,45 +14,45 @@ Após clonar o repositório, faça os seguinte passos para executar:<br>
   5 - (Opcional) Caso prefira testar no swagger você precisa entrar no arquivo launchSettings.json e editar a linha<br>
   "launchBrowser": false, <--- para TRUE<br>
 
-É possível fazer o post de Usuario, Publicacao e Interacao.
+É possível fazer o post de Usuario, Publicacao e Interacao.<br><br>
 
-Para teste DA API foi utilizado o POSTMAN
+Para teste DA API foi utilizado o POSTMAN<br><br>
 
-METODO #POST
+METODO #POST<br><br>
 
-https://localhost:7075/usuario
-Corpo do POST Usuario
-{
-    "Email" : "teste1@hotmail.com",
-    "Senha" : "123"
-}
+https://localhost:7075/usuario<br>
+Corpo do POST Usuario<br>
+{<br>
+    "Email" : "teste1@hotmail.com",<br>
+    "Senha" : "123"<br>
+}<br><br>
 
-https://localhost:7075/publicacao
-Corpo do POST Publicacao
-{
-    "Email" : "teste1@hotmail.com",
-    "Senha" : "123"
-}
+https://localhost:7075/publicacao<br>
+Corpo do POST Publicacao<br>
+{<br>
+    "Email" : "teste1@hotmail.com",<br>
+    "Senha" : "123"<br>
+}<br><br>
 
-https://localhost:7075/interacao
-Corpo do POST Interacao
-{
-    "UsuarioId": 1,
-    "Titulo": "Testando o Filme",
-    "Descricao": "Filme de Teste", 
-    "Genero": "Romance",
-    "Duracao": 120,
-    "Tipo": "Filme"
-}
+https://localhost:7075/interacao<br>
+Corpo do POST Interacao<br>
+{<br>
+    "UsuarioId": 1,<br>
+    "Titulo": "Testando o Filme",<br>
+    "Descricao": "Filme de Teste", <br>
+    "Genero": "Romance",<br>
+    "Duracao": 120,<br>
+    "Tipo": "Filme"<br>
+}<br><br>
 
-É possível fazer busca de Usario por ID e listar todos usuarios.
+É possível fazer busca de Usario por ID e listar todos usuarios.<br><br>
 
-METODO #GET
+METODO #GET<br><br>
 
-Listando todos usuários - https://localhost:7075/usuario 
-Listando usuário por id - https://localhost:7075/usuario/1
+Listando todos usuários - https://localhost:7075/usuario <br>
+Listando usuário por id - https://localhost:7075/usuario/1<br><br>
 
-Também é possível buscar todas publicações.
+Também é possível buscar todas publicações.<br><br>
 
-https://localhost:7075/publicacao
+https://localhost:7075/publicacao<br>
 
