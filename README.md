@@ -5,7 +5,8 @@ Banco de dados MYSQL Worckbench <br>
 Teste de API POSTMAN <br>
 IDE Visual Studio Code. <br>
 
-Após clonar o repositório, faça os seguinte passos para executar:<br>
+<b>Após clonar o repositório, faça os seguinte passos para executar:</b><br><br>
+
   1 - verifique a conexão em (appsettings.json) com o banco de dados, veja se esta de acordo com o seu banco de dados<br>
   2 - Abra o Package Manager Console no VISUAL STUDIO CODE e realize o Update-Database, isso vai excutar a migration <br>
   criando toda estrutura de banco de dados correta<br>
