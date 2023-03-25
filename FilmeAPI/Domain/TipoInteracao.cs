@@ -1,9 +1,13 @@
-﻿namespace FilmeAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FilmeAPI.Models
 {
-    public enum TipoInteracao
+    public class TipoInteracao
     {
-        seguir = 1,
-        indicar = 2,
-        naoIndicar = 3
+        [Key]
+        [Required]
+        public int id { get; set; }
+        public string tipoInteracao { get; set; }
     }
 }
+

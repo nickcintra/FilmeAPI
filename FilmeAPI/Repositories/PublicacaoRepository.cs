@@ -23,4 +23,9 @@ public class PublicacaoRepository
     {
         return _context.Publicacoes.AsQueryable();
     }
+
+    public Publicacao GetPublicacaoUnica(int id)
+    {
+        return _context.Publicacoes.FirstOrDefault(publicacao => publicacao.Id == id);
+    }
 }

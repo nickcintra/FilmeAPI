@@ -57,4 +57,5 @@ public class FilmeDbContext : DbContext
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Publicacao> Publicacoes { get; set; }
     public DbSet<Interacao> Interacoes { get; set; }
+    public DbSet<TipoInteracao> TipoInteracao { get; set; }
 }

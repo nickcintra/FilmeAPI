@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FilmeAPI.Data;
 using FilmeAPI.Models;
+using FilmeAPI.Requests;
 using FilmeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,17 +23,17 @@ public class InteracaoController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CriarPublicacao([FromBody] Interacao interacao)
+    public IActionResult CriarInteracao([FromBody] InteracaoRequest interacao)
     {
 
         bool usuarioRetorno = _service.criarInteracao(interacao);
         if (usuarioRetorno)
         {
-            return Ok("Publicação criado com sucesso!");
+            return Ok("Interação criada com sucesso!");
         }
         else
         {
-            return BadRequest("Falha ao criar publicação");
+            return BadRequest("Falha ao criar interação");
         }
     }
 
@@ -52,7 +53,7 @@ public class InteracaoController : ControllerBase
         }
         else
         {
-            return BadRequest("Nenhuma publicação encontrada");
+            return BadRequest("Nenhuma interação encontrada");
         }
     }
 
