@@ -1,18 +1,18 @@
 # FilmeAPI
 
-API Criada com ASP.NET 6
-Banco de dados MYSQL Worckbench
-Teste de API POSTMAN
-IDE Visual Studio Code.
+API Criada com ASP.NET 6 <br>
+Banco de dados MYSQL Worckbench <br>
+Teste de API POSTMAN <br>
+IDE Visual Studio Code. <br>
 
-Após clonar o repositório, faça os seguinte passos para executar:d
-  1 - verifique a conexão em (appsettings.json) com o banco de dados, veja se esta de acordo com o seu banco de dados
-  2 - Abra o Package Manager Console no VISUAL STUDIO CODE e realize o Update-Database, isso vai excutar a migration 
-  criando toda estrutura de banco de dados correta
-  3 - Execute a API 
-  4 - faça os teste no POSTMAN
-  5 - (Opcional) Caso prefira testar no swagger você precisa entrar no arquivo launchSettings.json e editar a linha
-  "launchBrowser": false, <--- para TRUE
+Após clonar o repositório, faça os seguinte passos para executar:<br>
+  1 - verifique a conexão em (appsettings.json) com o banco de dados, veja se esta de acordo com o seu banco de dados<br>
+  2 - Abra o Package Manager Console no VISUAL STUDIO CODE e realize o Update-Database, isso vai excutar a migration <br>
+  criando toda estrutura de banco de dados correta<br>
+  3 - Execute a API <br>
+  4 - faça os teste no POSTMAN<br>
+  5 - (Opcional) Caso prefira testar no swagger você precisa entrar no arquivo launchSettings.json e editar a linha<br>
+  "launchBrowser": false, <--- para TRUE<br>
 
 É possível fazer o post de Usuario, Publicacao e Interacao.
 
