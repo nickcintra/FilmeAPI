@@ -1,6 +1,4 @@
-﻿using FilmeAPI.Enums;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FilmeAPI.Models
 {
@@ -10,7 +8,10 @@ namespace FilmeAPI.Models
         [Required]
         public int Id { get; set; }
 
-        public int IdUsuario { get; set; }
+        [Required]
+        public int UsuarioId { get; private set; }
+
+        public Usuario usuario { get; private set; }
 
         [Required(ErrorMessage = "O título do filme é obrigatório")]
         [MaxLength(50, ErrorMessage = "O tamanho do título não pode exceder 50 caracteres")]
@@ -28,24 +29,24 @@ namespace FilmeAPI.Models
         public int Duracao { get; set; }
 
         [Required(ErrorMessage = "A categoria do filme é obrigatória")]
-        public CategoriaFilme _categoriaFilme { get; set; }
+        public string Tipo { get; set; }
 
-        public ICollection<Interacao> Interacoes { get; set; }
+        public ICollection<Interacao>? Interacoes { get; private set; }
 
         public Publicacao()
         {
-            
+
         }
 
-        public Publicacao(int idUsuario, string titulo, string descricao, string genero, int duracao, CategoriaFilme categoriaFilme, ICollection<Interacao> interacoes)
+        public Publicacao(int usuarioId, Usuario usuario, string titulo, string descricao, string genero, int duracao, string tipo)
         {
-            IdUsuario = idUsuario;
+            UsuarioId = usuarioId;
+            this.usuario = usuario;
             Titulo = titulo;
             Descricao = descricao;
             Genero = genero;
             Duracao = duracao;
-            _categoriaFilme = categoriaFilme;
-            Interacoes = interacoes;
+            Tipo = tipo;
         }
     }
 }

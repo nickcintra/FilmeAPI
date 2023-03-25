@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using FilmeAPI.Data;
-using FilmeAPI.Data.Dtos;
 using FilmeAPI.Models;
+using FilmeAPI.Requests;
+using FilmeAPI.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmeAPI.Controllers;
@@ -13,35 +15,77 @@ public class UsuarioController : ControllerBase
 
     private FilmeDbContext _context;
     private IMapper _mapper;
+    private UsuarioService _service;
 
     public UsuarioController(FilmeDbContext context, IMapper mapper)
     {
+        _service = new UsuarioService(context);
         _context = context;
         _mapper = mapper;
     }
 
     [HttpPost]
-    public IActionResult CadastrarUsuario([FromBody] CreateUsuarioDto usuarioDto)
+    public IActionResult CadastrarUsuario([FromBody] UsuarioRequest usuario)
     {
-        Usuario usuario = _mapper.Map<Usuario>(usuarioDto);
-        _context.Usuarios.Add(usuario);
-        _context.SaveChanges();
-        return CreatedAtAction(nameof(ConsultarUsuarioUnico),
-        new { id = usuario.Id }, usuario);
+        bool usuarioRetorno = _service.criarUsuario(usuario);
+        if (usuarioRetorno)
+        {
+            return Ok("Usuário criado com sucesso!");
+        }
+        else
+        {
+            return BadRequest("Falha ao criar usuário");
+        }
+    }
+
+    [HttpPost("Login")]
+    public IActionResult Login([FromBody] UsuarioRequest usuario)
+    {
+
+        Usuario usuarioRetorno = _service.login(usuario.Email, usuario.Senha);
+        if (usuarioRetorno != null)
+        {
+            return Ok(new
+            {
+                mensagem = "Usuário logado com sucesso!",
+                logado = true,
+                usuario = usuarioRetorno
+            });
+        }
+        else
+        {
+            return BadRequest("Falha ao autenticar usuario!");
+        }
     }
 
     [HttpGet]
-    public IEnumerable<Usuario> RecuperaFilmes([FromQuery] int skip = 0, [FromQuery] int take = 50)
+    public IActionResult ConsultarUsuarios() 
     {
-        return _context.Usuarios.Skip(skip).Take(take);
+        var results = _service.GetUsuarios();
+         if (results != null)
+        {
+            return Ok(results);
+        }
+        else
+        {
+            return BadRequest("Nenhuma usuário encontrado");
+        }
     }
 
     [HttpGet("{id}")]
     public IActionResult ConsultarUsuarioUnico(int id)
     {
-        var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Id == id);
-        if (usuario == null) return NotFound();
-        return Ok(usuario);
+        Usuario usuario = _service.GetUsuarioUnico(id);
+        if (usuario != null)
+        {
+            return Ok(usuario);
+        }
+        else
+        {
+            return BadRequest("Nenhuma usuário encontrado");
+        }
+        
 
     }
+
 }
