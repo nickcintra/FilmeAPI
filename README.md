@@ -8,12 +8,12 @@ IDE Visual Studio Code. <br>
 <b>Após clonar o repositório, faça os seguinte passos para executar:</b><br><br>
 
   1 - verifique a conexão em (<b>appsettings.json</b>) com o banco de dados, veja se esta de acordo com o seu banco de dados<br>
-  2 - Abra o <b><i>Package Manager Console<i><b> no <b>VISUAL STUDIO CODE<b> e realize o <b>Update-Database<b>, isso vai excutar a migration <br>
+  2 - Abra o <b><i>Package Manager Console</i></b> no <b>VISUAL STUDIO CODE</b> e realize o <b>Update-Database</b>, isso vai executar a Migration <br>
   criando toda estrutura de banco de dados correta<br>
   3 - Execute a API <br>
   4 - faça os teste no POSTMAN<br>
-  5 - (Opcional) Caso prefira testar no swagger você precisa entrar no arquivo <b>launchSettings.json</b> e editar a linha<br>
-  "launchBrowser": false, <--- para TRUE<br><br>
+  5 - (Opcional) Caso prefira testar no swagger, você precisa entrar no arquivo <b>launchSettings.json</b> e editar a linha<br>
+  <b>"launchBrowser": false, <--- para TRUE</b><br><br>
 
 É possível fazer o post de Usuario, Publicacao e Interacao.<br>
 
